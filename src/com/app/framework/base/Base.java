@@ -1,5 +1,5 @@
 package app.framework.base;
 
-public class Base {
+public abstract class Base {
 
 }
