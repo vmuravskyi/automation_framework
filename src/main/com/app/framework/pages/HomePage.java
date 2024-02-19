@@ -1,8 +1,8 @@
-package app.framework.pages;
+package com.app.framework.pages;
 
 import org.openqa.selenium.By;
 
-import app.framework.base.BasePage;
+import com.app.framework.base.BasePage;
 
 public class HomePage extends BasePage {
 
