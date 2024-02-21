@@ -1,7 +1,5 @@
 package com.app.test.ui;
 
-import java.io.IOException;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,15 +10,12 @@ import com.app.framework.config.ConfigReader;
 import com.app.framework.config.Settings;
 import com.app.framework.pages.HomePage;
 import com.app.framework.pages.LoginPage;
-import com.app.framework.utilities.ExcelUtil;
-
-import jxl.read.biff.BiffException;
 
 public class LoginTest extends FrameworkInitialize {
 
-	public String username;
-	public String password;
-	
+	private String username = "admin";
+	private String password = "password";
+
 	@Before
 	public void initialize() {
 		ConfigReader.readConfig();
@@ -35,14 +30,6 @@ public class LoginTest extends FrameworkInitialize {
 	}
 
 	@Test
-	public void xmlTest() throws BiffException, IOException {
-		ExcelUtil excelUtil = new ExcelUtil(Settings.EXCEL_SHEET_PATH);
-		username = ExcelUtil.readCell("UserName", 1);
-		password = ExcelUtil.readCell("Password", 1);
-		System.out.printf("login=%s, pass=%s%n", login, password);
-	}
-
-	@Test
 	public void login() throws InterruptedException {
 		Thread.sleep(2000);
 
@@ -53,6 +40,11 @@ public class LoginTest extends FrameworkInitialize {
 		loginPage.login(username, password);
 
 		Thread.sleep(2000);
+	}
+
+	@Test
+	public void testToFail() {
+		assert false;
 	}
 
 }
