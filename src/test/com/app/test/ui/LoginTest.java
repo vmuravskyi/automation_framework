@@ -18,9 +18,9 @@ import jxl.read.biff.BiffException;
 
 public class LoginTest extends FrameworkInitialize {
 
-	public final String username = "Admin";
-	public final String password = "password";
-
+	public String username;
+	public String password;
+	
 	@Before
 	public void initialize() {
 		ConfigReader.readConfig();
@@ -37,8 +37,8 @@ public class LoginTest extends FrameworkInitialize {
 	@Test
 	public void xmlTest() throws BiffException, IOException {
 		ExcelUtil excelUtil = new ExcelUtil(Settings.EXCEL_SHEET_PATH);
-		var login = ExcelUtil.readCell("UserName", 1);
-		var password = ExcelUtil.readCell("Password", 1);
+		username = ExcelUtil.readCell("UserName", 1);
+		password = ExcelUtil.readCell("Password", 1);
 		System.out.printf("login=%s, pass=%s%n", login, password);
 	}
 
