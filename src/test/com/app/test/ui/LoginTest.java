@@ -20,7 +20,7 @@ public class LoginTest extends FrameworkInitialize {
 
 	public String username;
 	public String password;
-	
+
 	@Before
 	public void initialize() {
 		ConfigReader.readConfig();
@@ -39,7 +39,7 @@ public class LoginTest extends FrameworkInitialize {
 		ExcelUtil excelUtil = new ExcelUtil(Settings.EXCEL_SHEET_PATH);
 		username = ExcelUtil.readCell("UserName", 1);
 		password = ExcelUtil.readCell("Password", 1);
-		System.out.printf("login=%s, pass=%s%n", login, password);
+		System.out.printf("login=%s, pass=%s%n", username, password);
 	}
 
 	@Test
